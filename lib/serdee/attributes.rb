@@ -32,8 +32,8 @@ module Serdee
 
     def as_json
       self.class.insert_to(self, {}).deep_transform_keys! do |key|
-        if self.class.key_transform
-          self.class.key_transform.call(key.to_s)
+        if self.class.serialize_key
+          self.class.serialize_key.call(key.to_s)
         else
           key.to_s
         end
@@ -53,20 +53,23 @@ module Serdee
         @serializers ||= {}
       end
 
-      def set_key_transform(transform_name = nil, &block)
-        if transform_name
-          mapping = {
-            camel: :camelize.to_proc,
-            camel_lower: ->(key) { key.camelize(:lower) },
-            dash: :dasherize.to_proc,
-            underscore: :underscore.to_proc
-          }
-
-          @key_transform = mapping[transform_name.to_sym]
+      def serialize_key(method = nil, &block)
+        if method
+          @serialize_key = ->(key) { self.send(method, key) }
         elsif block
-          @key_transform = block
+          @serialize_key = block
         else
-          raise ArgumentError, "must supply at least transform_name or block"
+          @serialize_key || Serdee.serialize_key
+        end
+      end
+
+      def deserialize_key(method = nil, &block)
+        if method
+          @deserialize_key = ->(key) { self.send(method, key) }
+        elsif block
+          @deserialize_key = block
+        else
+          @deserialize_key || Serdee.deserialize_key
         end
       end
 
@@ -106,7 +109,11 @@ module Serdee
       def of_json(json)
         allocate.tap do |obj|
           data = json.deep_transform_keys do |key|
-            key.underscore.to_sym
+            if deserialize_key
+              deserialize_key.call(key).to_sym
+            else
+              key.to_sym
+            end
           end
           extract_to(data, obj)
           obj.deserialized_from = json

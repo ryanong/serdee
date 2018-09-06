@@ -4,7 +4,8 @@ require_relative "./response_code"
 
 class UnifiedMessage
   include Serdee::Attributes
-  set_key_transform :camel_lower
+  serialize_key { |key| key.camelize(:lower) }
+  deserialize_key { |key| key.underscore }
 
   PROCESSING_CODES = {
     balance_inquiry: "315400",

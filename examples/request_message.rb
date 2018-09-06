@@ -3,7 +3,8 @@ require_relative "./unified_message"
 
 class RequestMessage
   include Serdee::Attributes
-  set_key_transform :camel_lower
+  serialize_key { |key| key.camelize(:lower) }
+  deserialize_key { |key| key.underscore }
 
   nested :request, UnifiedMessage
 end
