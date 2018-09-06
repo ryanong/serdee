@@ -1,0 +1,31 @@
+{
+  "request":{
+    "header":{
+      "signature":"BHNUMS",
+      "details":{
+        "productCategoryCode":"01",
+        "specVersion":"04"
+      }
+    },
+    "transaction":{
+      "primaryAccountNumber":"9877890000000000",
+      "processingCode":"315400",
+      "transactionAmount":"000000000000",
+      "transmissionDateTime":"131121105414",
+      "systemTraceAuditNumber":"000110",
+      "localTransactionTime":"105414",
+      "localTransactionDate":"131121",
+      "merchantCategoryCode":"5411",
+      "pointOfServiceEntryMode":"011",
+      "acquiringInstitutionIdentifier":"60300000063",
+      "retrievalReferenceNumber":"000000002962",
+      "merchantTerminalId":"06220     600   ",
+      "merchantIdentifier":"60300000063    ",
+      "merchantLocation":"BLACKHAWK SIMULATOR   PLEASANTON   CA US",
+      "transactionCurrencyCode":"840",
+      "additionalTxnFields":{
+        "productId":"07675004390"
+      }
+    }
+  }
+}

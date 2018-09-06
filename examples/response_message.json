@@ -1,0 +1,36 @@
+{
+  "response":{
+    "header":{
+      "signature":"BHNUMS",
+      "details":{
+        "productCategoryCode":"01",
+        "statusCode":"00",
+        "specVersion":"04"
+      }
+    },
+    "transaction":{
+      "primaryAccountNumber":"9877890000000000",
+      "processingCode":"315400",
+      "transactionAmount":"000000000000",
+      "transmissionDateTime":"131121105414",
+      "systemTraceAuditNumber":"000110",
+      "localTransactionTime":"105414",
+      "localTransactionDate":"131121",
+      "merchantCategoryCode":"5411",
+      "pointOfServiceEntryMode":"011",
+      "acquiringInstitutionIdentifier":"60300000063",
+      "authidentificationResponse":"123456",
+      "responseCode":"00",
+      "retrievalReferenceNumber":"000000002962",
+      "merchantTerminalId":"06220     600   ",
+      "merchantIdentifier":"60300000063    ",
+      "transactionCurrencyCode":"840",
+      "additionalTxnFields":{
+        "productId":"07675004390",
+        "balanceAmount":"C000000002500",
+        "transactionUniqueId": "0JPKA8FKHT2H011784WA0524PM",
+        "correlatedTransactionUniqueId": "0JPKA8FKHT2H011784WA0524PM"
+      }
+    }
+  }
+}
