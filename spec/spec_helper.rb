@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "serder"
+require "serdee"
 require "pry"
 
 Dir["./examples/**/*.rb"].sort.each { |f| require f }

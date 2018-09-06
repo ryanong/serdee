@@ -1,7 +1,7 @@
 require "json"
-require "serder/version"
-require "serder/attribute"
-require "serder/attributes"
+require "serdee/version"
+require "serdee/attribute"
+require "serdee/attributes"
 
 module Serdee
   class << self
